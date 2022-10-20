@@ -1,18 +1,16 @@
 
 
-
-1st
+--1st
 
 SELECT *
-    FROM international_debt
-    Limit 10
-    
-    
+FROM international_debt
+Limit 10
+        
     
 --2nd
 
 SELECT 
-    COUNT (DISTINCT country_name) AS total_distinct_countries
+COUNT (DISTINCT country_name) AS total_distinct_countries
 FROM international_debt
 
 
