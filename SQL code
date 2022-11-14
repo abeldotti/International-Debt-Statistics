@@ -1,20 +1,20 @@
 
 
---1st
+--1st We're selecting all the data we need from the database and limiting the output to the first 10 rows
 
 SELECT *
 FROM international_debt
 Limit 10
         
     
---2nd
+--2nd Here I'm looking for the number of distinct countries
 
 SELECT 
 COUNT (DISTINCT country_name) AS total_distinct_countries
 FROM international_debt
 
 
---3rd
+--3rd Here I'm extracting the unique debt indicators from the table
 
 Select
 DISTINCT indicator_code AS distinct_debt_indicators
@@ -22,14 +22,14 @@ FROM international_debt
 ORDER BY distinct_debt_indicators
 
 
--- 4th
+-- 4th Here I'm finding the total amount of debt
 
 SELECT 
    ROUND(SUM(DEBT)/1000000,2) AS total_debt
 FROM international_debt
 
 
---5th
+--5th The country owing the highest amount of debt
 
 SELECT 
     country_name,
@@ -40,7 +40,7 @@ ORDER BY total_debt DESC
 LIMIT 1
 
 
---6th
+--6th The average amount of debt owed across the categories
 
 SELECT 
     indicator_code AS debt_indicator,
@@ -52,7 +52,7 @@ ORDER BY average_debt DESC
 LIMIT 10
 
 
---7th
+--7th The country with the highest amount of principal repayments
 
 SELECT 
     country_name, 
@@ -64,7 +64,7 @@ WHERE debt = (SELECT
              WHERE indicator_code='DT.AMT.DLXF.CD')
              
             
---8th
+--8th This will show the debt indicator that appears the most frequently
 
 SELECT
       indicator_code,
@@ -75,7 +75,7 @@ ORDER BY indicator_count DESC, indicator_code DESC
 LIMIT 20
 
 
---9th
+--9th Maximum amount of debt each country owes
 
 SELECT
       country_name,
